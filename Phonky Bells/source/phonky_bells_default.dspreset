@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DecentSampler>
+    <ui bgImage="background.png" width="812" height="375" layoutMode="relative"
+    bgMode="top_left">
+  <tab name="main">
+    <labeled-knob x="10" y="50" width="90" textSize="20" textColor="FFFFFFFF" 
+                  trackForegroundColor="FCFF00F3" trackBackgroundColor="FF0C0C0C" 
+                  label="Attack" type="float" minValue="0.0" maxValue="1.0" value="0.0" >
+      <binding type="amp" level="instrument" position="0" parameter="ENV_ATTACK" />
+    </labeled-knob>
+    <labeled-knob x="100" y="50" width="90" textSize="20" textColor="FFFFFFFF" 
+                  trackForegroundColor="FCFF00F3" trackBackgroundColor="FF0C0C0C" 
+                  label="Release" type="float" minValue="0.1" maxValue="5.0" value="0.3" >
+      <binding type="amp" level="instrument" position="0" parameter="ENV_RELEASE" />
+    </labeled-knob>
+    <labeled-knob x="190" y="50" width="90" textSize="20" textColor="FFFFFFFF" 
+                  trackForegroundColor="FCFF00F3" trackBackgroundColor="FF0C0C0C" 
+                  label="Width" type="float" minValue="0.0" maxValue="1" value="0.0" >
+      <binding type="effect" level="instrument" position="1" parameter="FX_MIX" />
+    </labeled-knob>
+    <labeled-knob x="280" y="50" width="90" textSize="20" textColor="FFFFFFFF"
+                  trackForegroundColor="FCFF00F3" trackBackgroundColor="FF0C0C0C"
+                  label="Tone" type="float" minValue="0" maxValue="1" value="1">
+      <binding type="effect" level="instrument" position="0" parameter="FX_FILTER_FREQUENCY"
+               translation="table" 
+               translationTable="0,33;0.3,150;0.4,450;0.5,1100;0.7,4100;0.9,11000;1.0001,22000"/>
+    </labeled-knob>
+    <labeled-knob x="370" y="50" width="90" textSize="20" textColor="FFFFFFFF"
+                  trackForegroundColor="FCFF00F3" trackBackgroundColor="FF0C0C0C" 
+                  label="Reverb" type="percent" minValue="0" maxValue="100" value="0.01">
+      <binding type="effect" level="instrument" position="2" 
+               parameter="FX_REVERB_WET_LEVEL" translation="linear" 
+               translationOutputMin="0" translationOutputMax="1" />
+    </labeled-knob>
+    <labeled-knob x="460" y="50" width="90" textSize="20" textColor="FFFFFFFF"
+                  trackForegroundColor="FCFF00F3" trackBackgroundColor="FF0C0C0C" 
+                  label="Delay" type="percent" minValue="0" maxValue="100" value="0.01">
+      <binding type="effect" level="instrument" position="3" 
+               parameter="FX_WET_LEVEL" translation="linear" 
+               translationOutputMin="0" translationOutputMax="1" />
+    </labeled-knob>
+    <labeled-knob x="550" y="50" width="90" textSize="20" textColor="FFFFFFFF" 
+                  trackForegroundColor="FCFF00F3" trackBackgroundColor="FF0C0C0C" 
+                  label="Gain" type="float" minValue="0.0" maxValue="10.0" value="5" >
+      <binding type="amp" level="instrument" position="4" parameter="AMP_VOLUME" />
+    </labeled-knob>
+  </tab>
+</ui>
+    <groups>
+        <group> 
+            <sample rootNote="84" loNote="84" hiNote="120" volume= "6db" path="samples/default/C5.wav"/>
+            <sample rootNote="72" loNote="72" hiNote="84" volume= "6db" path="samples/default/C4.wav"/>
+            <sample rootNote="60" loNote="60" hiNote="72" volume= "6db" path="samples/default/C3.wav"/>
+            <sample rootNote="48" loNote="48" hiNote="59" volume= "6db" path="samples/default/C2.wav"/>
+            <sample rootNote="36" loNote="0" hiNote="47" volume= "6db" path="samples/default/C1.wav"/>
+        </group>
+    </groups>
+    <effects>
+        <effect type="lowpass" frequency="22000.0"/>
+        <effect type="chorus"  mix="0.0" modDepth="0.3" modRate="0.3" />
+        <effect type="reverb" wetLevel="0.5"/>
+        <effect type="delay" delayTime="0.1" stereoOffset="0.05" feedback="0.3" wetLevel="0.5" />
+      </effects>
+</DecentSampler>

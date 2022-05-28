@@ -1,2 +1,2 @@
 # voxel-audio
- Don's Free Sampler Library
+Free sound libraries for Decent Sampler
